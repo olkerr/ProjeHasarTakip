@@ -1,0 +1,43 @@
+﻿@model ProjeHasarTakip.Models.Listeicerikler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Listeicerikler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Araclar.Arackod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Araclar.Arackod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Listeler.ListeAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Listeler.ListeAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ListeicerikId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,55 @@
+﻿
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Araç Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body pt-2 mt-1">
+                    <form id="formAccountSettings" method="POST" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline">
+                                    <input class="form-control" type="text" id="Arackod" name="Arackod" value="" autofocus="">
+                                    <label for="Arackod" class="form-label">Araç Kodu</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline">
+                                    <input class="form-control" type="text" id="AracPlaka" name="AracPlaka" value="" placeholder="06aaa000">
+                                    <label for="AracPlaka" class="form-label">Araç Plaka</label>
+                                </div>
+                            </div>
+                            <!-- Diğer form alanları buraya eklenecek -->
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline">
+                                    <input class="form-control" type="datetime-local" id="AracMuayene" name="AracMuayene" value="" placeholder="06aaa000">
+                                    <label for="AracMuayene" class="form-label">Muayene Bitiş</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating form-floating-outline">
+                                    <select name="AracResim" class="form-control" required>
+                                        <option>Resim Seçiniz</option>
+                                        <option value="~/Img/AracResim/mansolo.jpg">Man Solo</option>
+                                        <option value="~/Img/AracResim/karsanmd.jpg">Karsan</option>
+                                        <option value="~/Img/AracResim/12mercedeskrkl.jpg">2012 Mercedes</option>
+                                        <option value="~/Img/AracResim/2122Mercedessolo.jpg">21-22 Mercedes Solo</option>
+                                        <option value="~/Img/AracResim/2122Mercedeskrkl.jpg">21-22 Mercedes Körüklü</option>
+                                    </select>
+                                    <label for="AracResim" class="form-label">Araç Resim</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary" onclick="addCar()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>

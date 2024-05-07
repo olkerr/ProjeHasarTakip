@@ -1,0 +1,81 @@
+﻿@model ProjeHasarTakip.Models.Arac.Araclar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>Araclar</h4>
+    <hr />
+    <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
+        <!-- User Card -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="user-avatar-section">
+                    <div class="d-flex align-items-center flex-column">
+                        <a href="@Url.Content(Model.AracResim)" target="_blank">
+                            <img class="img-fluid rounded mb-3 mt-4" src="@Url.Content(Model.AracResim)" height="120" width="120" alt="User avatar">
+                        </a>
+
+                        <div class="user-info text-center">
+                            <h4>@Html.DisplayFor(model => model.Arackod)</h4>
+                            <span class="badge bg-label-danger rounded-pill">@Html.DisplayFor(model => model.AracPlaka)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="pb-3 border-bottom mb-3">Araç Detayları:</h5>
+                <div class="info-container">
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Model:</span>
+                            <span>@Html.DisplayFor(model => model.AracModel)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Marka:</span>
+                            <span>@Html.DisplayFor(model => model.AracMarka)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Tipi:</span>
+                            <span class="badge rounded-pill bg-label-primary me-1l">@Html.DisplayFor(model => model.AracTip)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Durum:</span>
+                            <span>@Html.DisplayFor(model => model.AracDurum)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Konum:</span>
+                            <span>@Html.DisplayFor(model => model.AracKonum)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Muayene Tarihi:</span>
+                            @Html.DisplayFor(model => model.AracMuayene)
+                        </li>
+
+                    </ul>
+
+
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                <div class="mt-4">
+                    @Html.ActionLink("Düzenle", "Edit", new { id = Model.AracId }, htmlAttributes: new { @class = "btn btn-primary waves-effect waves-light" })
+                    @Html.ActionLink("Vazgeç", "Index", null, new { @class = "btn btn-secondary waves-effect waves-light" })
+                </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+        <!-- /User Card -->
+        <!-- Plan Card -->
+        <!-- /Plan Card -->
+    </div>
+</div>
+

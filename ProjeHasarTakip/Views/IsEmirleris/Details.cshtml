@@ -1,0 +1,83 @@
+﻿@model ProjeHasarTakip.Models.IsEmri.IsEmirleri
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IsEmirleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Araclars.Arackod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Araclars.Arackod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OlusturulmaTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OlusturulmaTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OncelikDurumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OncelikDurumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TamamlanmaOranı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TamamlanmaOranı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TamamlanmaDurumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TamamlanmaDurumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TamamlanmaTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TamamlanmaTarihi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IsEmriId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

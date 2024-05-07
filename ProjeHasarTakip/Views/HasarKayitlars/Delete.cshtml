@@ -1,0 +1,75 @@
+﻿@model ProjeHasarTakip.Models.HasarKayitlar
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<button type="button" class="btn btn-label-danger text-nowrap d-inline-flex position-relative">
+    Bu Hasar Kayıt Bilgilerini Silmek İstediğinize Eminmisiniz ?
+    <span class="position-absolute top-0 start-100 translate-middle badge badge-dot border border-2 p-2 bg-danger"></span>
+</button>
+<div>
+    <h4>Hasar Kayıt</h4>
+    <hr />
+    <div class="col-xl-3 col-lg-3 col-md-3 order-3 order-md-0">
+        <!-- User Card -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="user-avatar-section">
+                    <div class="d-flex align-items-center flex-column">
+                        <a href="@Url.Content(Model.HasarResim)" target="_blank">
+                            <img class="img-fluid rounded mb-3 mt-4" src="@Url.Content(Model.HasarResim)" height="120" width="120" alt="User avatar">
+                        </a>
+
+                        <div class="user-info text-center">
+                            <h4>@Html.DisplayFor(model => model.Araclars.Arackod)</h4>
+                            <span class="badge bg-label-danger rounded-pill">@Html.DisplayFor(model => model.HasarDurumu)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="pb-3 border-bottom mb-3">Hasar Detayları:</h5>
+                <div class="info-container">
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Başlık :</span>
+                            <span>@Html.DisplayFor(model => model.Baslik)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Açıklama :</span>
+                            <span>@Html.DisplayFor(model => model.Aciklama)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Tarih :</span>
+                            <span class="badge rounded-pill bg-label-primary me-1l">@Html.DisplayFor(model => model.Tarih)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fw-medium text-heading me-2">Hasar Durum:</span>
+                            <span>@Html.DisplayFor(model => model.HasarDurumu)</span>
+                        </li>
+
+
+                    </ul>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger waves-effect waves-light">Sil</button>
+                    @*<input type="submit" value="Sil" class="btn btn-danger suspend-user waves-effect" />*@ |
+                    @Html.ActionLink("Vazgeç", "Index", null, new { @class = "btn btn-secondary waves-effect waves-light" })
+                </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+        <!-- /User Card -->
+        <!-- Plan Card -->
+        <!-- /Plan Card -->
+    </div>
+</div>

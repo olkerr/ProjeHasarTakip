@@ -1,0 +1,119 @@
+﻿@model ProjeHasarTakip.Models.HasarKayitlar
+
+@{
+    ViewBag.Title = "Hasar Kaydı Oluştur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "HasarKayitlars", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+
+                <div class="row fv-plugins-icon-container">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <h4 class="card-header">@ViewBag.Title</h4>
+                            <!-- Account -->
+                            <div class="card-body">
+
+                            </div>
+                            <div class="card-body pt-2 mt-1">
+                                <form id="formAccountSettings" method="POST" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+
+                                    <div class="row mt-2 gy-4">
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+
+                                                @Html.DropDownList("AracId", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.AracId, "", new { @class = "text-danger" })
+                                                @Html.LabelFor(model => model.AracId, "Araç Seçiniz", htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <input class="form-control" type="text" id="Baslik" name="Baslik" value="" placeholder="Başlık Yazınız..">
+                                                @Html.LabelFor(model => model.Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="input-group input-group-merge">
+                                                <div class="form-floating form-floating-outline">
+                                                    <input type="text" id="Aciklama" name="Aciklama" class="form-control" placeholder="Acıklama">
+                                                    @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <input type="datetime-local" class="form-control" id="Tarih" name="Tarih" placeholder="">
+                                                @Html.LabelFor(model => model.Tarih, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <select name="HasarDurumu" class="form-control" required>
+                                                    <option>Hasar Durumu Seçiniz</option>
+                                                    <option value="Hasar Aktif">Hasar Aktif</option>
+                                                    <option value="Hasar Giderildi">Hasar Giderildi</option>
+                                                    
+                                                </select>
+                                                @Html.LabelFor(model => model.HasarDurumu, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.HasarResim, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    <input type="file" required name="HasarResim" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-primary me-2 waves-effect waves-light">Kaydı Oluştur</button>
+                                        @Html.ActionLink("Listeye Dön", "Index", null, new { @class = "btn btn-secondary waves-effect waves-light" })
+
+                                    </div>
+                                    <input type="hidden">
+                                </form>
+                            </div>
+                            <!-- /Account -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- / Content -->
+
+
+        </div>
+
+
+
+
+    </div>
+}
+
+
+
+
+
+

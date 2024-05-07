@@ -1,0 +1,191 @@
+﻿@model ProjeHasarTakip.Models.Arac.Araclar
+
+@{
+    ViewBag.Title = "Araç Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+
+                <div class="row fv-plugins-icon-container">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <h4 class="card-header">@ViewBag.Title</h4>
+                            <!-- Account -->
+                            <div class="card-body">
+
+                            </div>
+                            <div class="card-body pt-2 mt-1">
+                                <form id="formAccountSettings" method="POST" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+
+                                    <div class="row mt-2 gy-4">
+
+                                        <div class="col-md-6 fv-plugins-icon-container">
+                                            <div class="form-floating form-floating-outline">
+                                                <input class="form-control" type="text" id="Arackod" name="Arackod" value="" autofocus="">
+                                                @Html.LabelFor(model => model.Arackod, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                            </div>
+                                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <input class="form-control" type="text" id="AracPlaka" name="AracPlaka" value="" placeholder="06aaa000">
+                                                @Html.LabelFor(model => model.AracPlaka, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <select name="AracModel" class="form-control" required>
+                                                    <option>Model Seçiniz</option>
+                                                    <option value="2006">2006</option>
+                                                    <option value="2007">2007</option>
+                                                    <option value="2008">2008</option>
+                                                    <option value="2009">2009</option>
+                                                    <option value="2010">2010</option>
+                                                    <option value="2011">2011</option>
+                                                    <option value="2012">2012</option>
+                                                    <option value="2013">2013</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                </select>
+                                                @Html.LabelFor(model => model.AracModel, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <select name="AracMarka" class="form-control" required>
+                                                    <option>Marka Seçiniz</option>
+                                                    <option value="Man">Man</option>
+                                                    <option value="Mercedes">Mercedes</option>
+                                                    <option value="Karsan">Karsan</option>
+                                                    <option value="Bozankaya">Bozankaya</option>
+
+                                                </select>
+                                                @Html.LabelFor(model => model.AracMarka, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <select name="AracTip" class="form-control" required>
+                                                    <option>Araç Tipi Seçiniz</option>
+                                                    <option value="Solo">Solo</option>
+                                                    <option value="Körüklü">Körüklü</option>
+                                                    <option value="Midi">Midi</option>
+                                                    <option value="Elektirikli">Elektirikli</option>
+
+                                                </select>
+                                                @Html.LabelFor(model => model.AracTip, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <select name="AracDurum" class="form-control" required>
+                                                    <option>Durum Seçiniz</option>
+                                                    <option value="Hazır">Hazır</option>
+                                                    <option value="Arızalı">Arızalı</option>
+                                                    <option value="Parça Bekler">Parça Bekler</option>
+                                                    <option value="Bakım">Bakım</option>
+
+                                                </select>
+                                                @Html.LabelFor(model => model.AracDurum, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <select name="AracKonum" class="form-control" required>
+                                                    <option>Konum Seçiniz</option>
+                                                    <option value="Bölge">Bölge</option>
+                                                    <option value="Kademe">Kademe</option>
+                                                    <option value="Merkez Atölye">Merkez Atölye</option>
+                                                    <option value="Mercedes Servis">Mercedes Servis</option>
+                                                    <option value="Karsan Servis">Karsan Servis</option>
+
+                                                </select>
+                                                @Html.LabelFor(model => model.AracKonum, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <input class="form-control" type="datetime-local" id="AracMuayene" name="AracMuayene" value="" placeholder="06aaa000">
+                                                @Html.LabelFor(model => model.AracMuayene, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating form-floating-outline">
+                                                <select name="AracResim" class="form-control" required>
+                                                    <option>Resim Seçiniz</option>
+                                                    <option value="~/Img/AracResim/mansolo.jpg">Man Solo</option>
+                                                    <option value="~/Img/AracResim/karsanmd.jpg">Karsan</option>
+                                                    <option value="~/Img/AracResim/12mercedeskrkl.jpg">2012 Mercedes</option>
+                                                    <option value="~/Img/AracResim/2122Mercedessolo.jpg">21-22 Mercedes Solo</option>
+                                                    <option value="~/Img/AracResim/2122Mercedeskrkl.jpg">21-22 Mercedes Körüklü</option>
+
+                                                </select>
+                                                @Html.LabelFor(model => model.AracResim, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-primary me-2 waves-effect waves-light">Araç Ekle Ekle</button>
+                                        @Html.ActionLink("Listeye Dön", "Index", null, new { @class = "btn btn-secondary waves-effect waves-light" })
+
+                                    </div>
+                                    <input type="hidden">
+                                </form>
+                            </div>
+                            <!-- /Account -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- / Content -->
+
+        </div>
+
+    </div>
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

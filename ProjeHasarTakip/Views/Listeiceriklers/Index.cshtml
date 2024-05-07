@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjeHasarTakip.Models.Listeicerikler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Araclar.Arackod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Listeler.ListeAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Araclar.Arackod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Listeler.ListeAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ListeicerikId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ListeicerikId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ListeicerikId })
+        </td>
+    </tr>
+}
+
+</table>

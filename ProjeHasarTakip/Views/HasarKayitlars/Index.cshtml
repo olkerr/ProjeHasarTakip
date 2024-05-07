@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ProjeHasarTakip.Models.HasarKayitlar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="card">
+    <h5 class="card-header">
+        @Html.ActionLink("HasarKayıt Ekle", "Create", null, new { @class = "btn btn-primary waves-effect waves-light" })
+    </h5>
+
+    <br>
+    <table id="HasarrKayit" class="table table-hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Araclars.Arackod)</th>
+                <th>@Html.DisplayNameFor(model => model.Baslik)</th>
+                <th>@Html.DisplayNameFor(model => model.Aciklama)</th>
+                <th>@Html.DisplayNameFor(model => model.Tarih)</th>
+                <th>@Html.DisplayNameFor(model => model.HasarDurumu)</th>
+                <th>@Html.DisplayNameFor(model => model.HasarResim)</th>
+                <th>Aksiyon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Araclars.Arackod)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Baslik)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Aciklama)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tarih)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HasarDurumu)</td>
+                    <td>
+                        @*<img src="@item.HasarResim" alt="" class="w-px-50 h-auto rounded-circle" />*@
+                        <a href="@Url.Content(item.HasarResim)" target="_blank">
+                            @*<img class="w-px-40 h-auto rounded-circle" src="@Url.Content(item.HasarResim)">*@
+                            <img src="@Url.Content(item.HasarResim)" alt="" class="rounded" height="34">
+                        </a>
+
+                    </td>
+
+
+                    <td>
+                        <a href="/HasarKayitlars/Edit/@item.HasarKayitlarId" class="mdi mdi-account-edit-outline mdi-24px" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Düzenle"> </a>
+                        |
+                        <a href="/HasarKayitlars/Details/@item.HasarKayitlarId" class="mdi mdi-card-account-details-outline mdi-24px" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Detay"> </a>
+                        |
+                        <a href="/HasarKayitlars/Delete/@item.HasarKayitlarId" class="mdi mdi-trash-can-outline mdi-24px" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Sil"> </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+
+@section scripts {
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
+    @*<link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet" />*@
+    <link href="~/ProjeTema/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('#HasarrKayit').DataTable({
+                //buttons: ['colvis'],
+                "autoWidth": true,
+                select: true,
+                language: {
+
+                    url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/tr.json',
+                },
+                dom: 'Blfrtip'
+
+            });
+        });
+    </script>
+}

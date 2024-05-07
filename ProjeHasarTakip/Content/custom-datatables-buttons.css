@@ -1,0 +1,27 @@
+﻿/* custom-datatables-buttons.css */
+
+.dt-buttons {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 5px;
+    text-align: left; /* Butonları merkezi hizalama */
+}
+
+    .dt-buttons button {
+        margin-right: 0px; /* Butonlar arasındaki boşluk */
+        padding: 5px 6px; /* Buton içeriği iç padding */
+        font-size: 14px;
+        background-color: #666cff; /* Buton arka plan rengi */
+        color: #fff; /* Buton metin rengi */
+        border: 1px solid #666cff; /* Buton kenarlık rengi */
+        border-radius: 5px; /* Buton köşe yuvarlaklığı */
+    }
+
+.dt-button-collection .dropdown-menu {
+    background-color: #666cff; /* Altındaki dropdown menü arka plan rengi */
+    border: 1px solid #666cff; /* Altındaki dropdown menü kenarlık rengi */
+}
+
+
+
